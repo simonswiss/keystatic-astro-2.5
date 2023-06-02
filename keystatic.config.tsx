@@ -8,18 +8,17 @@ import {
   type GitHubConfig,
 } from '@keystatic/core'
 
-const storage =
-  process.env.NODE_ENV === 'production'
-    ? ({
+// Storage strategy
+const storage: LocalConfig['storage'] | GitHubConfig['storage'] =
+  import.meta.env.MODE === 'development'
+    ? { kind: 'local' }
+    : {
         kind: 'github',
         repo: {
           owner: 'simonswiss',
           name: 'keystatic-astro-2.5',
         },
-      } satisfies GitHubConfig['storage'])
-    : ({
-        kind: 'local',
-      } satisfies LocalConfig['storage'])
+      }
 
 export default config({
   storage,
