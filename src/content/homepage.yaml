@@ -1,2 +1,4 @@
 headline: This is the new content
-introText: It has been setup to work on the Git remote branch now.
+introText: >-
+  It has been setup to work on the Git remote branch now. And I have just
+  updated it from the deployed URL!
