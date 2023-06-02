@@ -34,6 +34,20 @@ export default config({
         }),
       },
     }),
+    test: collection({
+      label: 'Test',
+      path: 'src/content/test/*',
+      slugField: 'title',
+      schema: {
+        // This line below will break the create/edit page load
+        // in local mode:
+
+        // title: fields.slug({ name: { label: 'Title' } }),
+
+        title: fields.text({ label: 'Title' }),
+        body: fields.text({ label: 'Body', multiline: true }),
+      },
+    }),
   },
   singletons: {
     homepage: singleton({
