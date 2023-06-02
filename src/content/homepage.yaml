@@ -1,4 +1,2 @@
-headline: This is the homepage headline!
-introText: >-
-  And this is the intro text. It works pretty damn great with the new Astro
-  hybrid rendering in 2.5, honestly!
+headline: This is the new content
+introText: It has been setup to work on the Git remote branch now.
