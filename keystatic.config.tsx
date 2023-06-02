@@ -3,7 +3,11 @@ import { config, collection, fields, singleton } from '@keystatic/core'
 
 export default config({
   storage: {
-    kind: 'local',
+    kind: 'github',
+    repo: {
+      owner: 'simonswiss',
+      name: 'keystatic-astro-2.5',
+    },
   },
   collections: {
     posts: collection({
@@ -22,7 +26,7 @@ export default config({
   singletons: {
     homepage: singleton({
       label: 'Homepage',
-      path: 'src/content/_homepage',
+      path: 'src/content/homepage',
       schema: {
         headline: fields.text({ label: 'Headline' }),
         introText: fields.text({ label: 'Intro Text', multiline: true }),
