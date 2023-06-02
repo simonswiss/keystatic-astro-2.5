@@ -6,10 +6,13 @@ import Layout from '../layouts/Layout.astro'
 
 const reader = createReader('', keystaticConfig)
 const homepageData = await reader.singletons.homepage.read()
+
+const isDev = import.meta.env.DEV
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="max-w-2xl mx-auto px-6 py-16">
+    <code>{isDev ? 'dev' : 'prod'}</code>
     <h1 class="text-3xl font-semibold">{homepageData?.headline}</h1>
     <p class="mt-6 text-gray-700">{homepageData?.introText}</p>
   </main>
