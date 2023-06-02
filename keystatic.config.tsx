@@ -8,6 +8,8 @@ import {
   type GitHubConfig,
 } from '@keystatic/core'
 
+console.log('environment', import.meta.env.DEV)
+
 // Storage strategy
 const storage: LocalConfig['storage'] | GitHubConfig['storage'] = import.meta.env.DEV
   ? { kind: 'local' }
