@@ -1,14 +1,28 @@
 // keystatic.config.tsx
-import { config, collection, fields, singleton } from '@keystatic/core'
+import {
+  config,
+  collection,
+  fields,
+  singleton,
+  type LocalConfig,
+  type GitHubConfig,
+} from '@keystatic/core'
+
+const storage =
+  process.env.NODE_ENV === 'production'
+    ? ({
+        kind: 'github',
+        repo: {
+          owner: 'simonswiss',
+          name: 'keystatic-astro-2.5',
+        },
+      } satisfies GitHubConfig['storage'])
+    : ({
+        kind: 'local',
+      } satisfies LocalConfig['storage'])
 
 export default config({
-  storage: {
-    kind: 'github',
-    repo: {
-      owner: 'simonswiss',
-      name: 'keystatic-astro-2.5',
-    },
-  },
+  storage,
   collections: {
     posts: collection({
       label: 'Posts',
