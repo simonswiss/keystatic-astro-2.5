@@ -9,16 +9,15 @@ import {
 } from '@keystatic/core'
 
 // Storage strategy
-const storage: LocalConfig['storage'] | GitHubConfig['storage'] =
-  import.meta.env.MODE === 'development'
-    ? { kind: 'local' }
-    : {
-        kind: 'github',
-        repo: {
-          owner: 'simonswiss',
-          name: 'keystatic-astro-2.5',
-        },
-      }
+const storage: LocalConfig['storage'] | GitHubConfig['storage'] = import.meta.env.DEV
+  ? { kind: 'local' }
+  : {
+      kind: 'github',
+      repo: {
+        owner: 'simonswiss',
+        name: 'keystatic-astro-2.5',
+      },
+    }
 
 export default config({
   storage,
